@@ -1,0 +1,54 @@
+<% if (body.group.length) { %>
+    <table class="table table-dark table-striped mx-auto w-50 text-center">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Created At</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% body.group.forEach((group, index)=> { %>
+                <tr>
+                    <td>
+                        <%= index + 1 %>
+                    </td>
+                    <td>
+                        <%= group.name %>
+                    </td>
+                    <td>
+                        <%= group.format_created_time %>
+                    </td>
+                    <td><button type="button" class="btn btn-primary m-0 groupUpdateBtn" data-id="<%= group.id %>"
+                            data-name="<%= group.name %>" data-bs-toggle="modal"
+                            data-bs-target="#updateGroupModal">Update</button></td>
+
+                    <td><button type="button" class="btn btn-danger m-0 groupDeleteBtn" data-id="<%= group.id %>"
+                            data-bs-toggle="modal" data-bs-target="#deleteGroupModal">Delete</button></td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <div class="contactPagination d-flex justify-content-center m-5">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-lg">
+                <li class="page-item ">
+                    <a class="page-link" id="prev_page">Previous</a>
+                </li>
+                <% for(let i=1 ; i<=body.totalPage ; i++) {%>
+                    <li class="page-item <%= i === body.currentPage? 'active' : '' %>">
+                        <a class="page-link" id="page_<%= i %>" data-page="<%= i %>">
+                            <%= i %>
+                        </a>
+                    </li>
+                    <% } %>
+                        <li class="page-item"><a class="page-link" id="next_page">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+    <% } else { %>
+        <h3 class="text-center text-white">No Group found</h3>
+        <% } %>

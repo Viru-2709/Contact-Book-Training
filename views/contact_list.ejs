@@ -1,0 +1,78 @@
+<% if (body.contact.length) { %>
+    <table class="table table-dark table-striped mx-auto w-75 text-center">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>Group</th>
+                <th>Created At</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% body.contact.forEach((contact, index)=> { %>
+                <tr>
+                    <td>
+                        <%= index + 1 %>
+                    </td>
+                    <td>
+                        <img src="<%= contact.image ? `${body.imagepath}${contact.image}` : `${body.imagepath}default.jpeg` %>"
+                            alt="" style="width: 50px; height: 50px;">
+                    </td>
+                    <td>
+                        <%= contact.name %>
+                    </td>
+                    <td>
+                        <%= contact.email %>
+                    </td>
+                    <td>
+                        <%= contact.number %>
+                    </td>
+                    <td>
+                        <%= contact.group ? contact.group.name : '-' %>
+                    </td>
+                    <td>
+                        <%= contact.format_created_time %>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary m-0 updateBtn" data-id="<%= contact.id %>"
+                            data-name="<%= contact.name %>" data-email="<%= contact.email %>"
+                            data-number="<%= contact.number %>"
+                            data-group="<%= contact.group ? contact.group.id : '' %>" data-bs-toggle="modal"
+                            data-bs-target="#updateModal">Update</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger m-0 deleteBtn" data-id="<%= contact.id %>"
+                            data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <div class="contactPagination d-flex justify-content-center m-5">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-lg">
+                <li class="page-item">
+                    <a class="page-link" id="prev_page">Previous</a>
+                </li>
+                <% for(let i=1; i <=body.totalPage; i++) { %>
+                    <li class="page-item <%= i === body.currentPage ? 'active' : '' %>">
+                        <a class="page-link" id="page_<%= i %>" data-page="<%= i %>">
+                            <%= i %>
+                        </a>
+                    </li>
+                    <% } %>
+                        <li class="page-item">
+                            <a class="page-link" id="next_page">Next</a>
+                        </li>
+            </ul>
+        </nav>
+    </div>
+    <% } else { %>
+        <h3 class="text-center text-white">No contact found</h3>
+        <% } %>

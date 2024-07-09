@@ -1,0 +1,38 @@
+<html lang="en">
+<%- include("header")%>
+
+    <body>
+
+        <% if (typeof error !=='undefined' ) { %>
+            <div class="error-message">
+                <%= error %>
+            </div>
+            <% } %>
+                <form action="/" method="post" id="Login_form">
+                    <h3>Login Here</h3>
+
+                    <label for="emailORusername">Username</label>
+                    <input type="text" placeholder="Email OR Username" id="emailORusername" name="emailORusername">
+
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Password" id="password" name="password">
+
+                    <button type="submit" id="login_btn">Login</button>
+
+                    <div class="social">
+                        <h4>----- OR -----</h4>
+                        <div class="google_btn">
+                            <img src="../resources/assets/image/google.png" alt="">
+                            <a href="/auth/google" class="google">Sign in with Google</a>
+                        </div>
+                    </div>
+
+                    <h4 class="titlelogin">Don't have an account? <a href="/registration">Signup</a></h4>
+                    <h4 class="titlelogin">Don't remember your password? <br> <a href="/forgetpassword">Forget
+                            password</a></h4>
+                </form>
+    </body>
+    <%- include("footer")%>
+        <script src="/public/assets/js/login.min.js"></script>
+
+</html>

@@ -1,0 +1,138 @@
+<html lang="en">
+<%- include("user_header")%>
+
+    <div class="btns d-flex justify-content-between align-items-center mt-5 me-5">
+        <div class="dashboard">
+            <button type="button" class="btn btn-primary p-3 d-inline ms-5" id="contactaddBtn" data-bs-toggle="modal"
+                data-bs-target="#addModal">Add Contacts </button>
+        </div>
+        <div class="SearchBox ms-5 d-flex align-items-center">
+            <form id="search_form" class="d-flex gap-5 align-items-center">
+                <input type="text" id="search_name" placeholder="Search by Name...">
+                <input type="text" id="search_email" placeholder="Search by Email...">
+                <input type="text" placeholder="Search by Number..." id="search_number" name="number" maxlength="10"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '');
+                    if(this.value < 1) this.value = '';
+                    if (this.value.length > this.maxLength) {
+                    this.value = this.value.slice(0, this.maxLength);
+                }">
+                <select class="mt-5 searchGroup bg-dark text-white" name="group" id="search_group"></select>
+                <button class="btn btn-secondary mt-5" id="search_btn" type="submit">Search</button>
+            </form>
+            <button class="btn btn-secondary resetBtn ms-5 mt-5 me-5" id="reset_btn" type="submit">Reset</button>
+        </div>
+        <div class="LimitBox">
+            <form id="contact_limit_form" class="d-flex gap-5 align-items-center">
+                <input type="number" placeholder="Set Limit" id="contact_limit" value="" maxlength="3" oninput="this.value = this.value.replace(/[^0-9]/g, '');
+                if(this.value < 1) this.value = '';
+                if (this.value.length > this.maxLength) {
+                        this.value = this.value.slice(0, this.maxLength);
+                    }">
+                <button class="btn btn-secondary limitbtn mt-5 me-2" type="submit" id="contact_limit_btn">Set
+                    Limit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="addModal">
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-white" id="addModalLabel">Add Contacts</h1>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" id="contact_form" enctype="multipart/form-data">
+                            <label for="name">Name</label>
+                            <input type="text" placeholder="Name" id="name" name="name">
+
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="Email" id="email" name="email">
+
+                            <label for="number">Contact Number</label>
+                            <input type="text" placeholder="Number" id="number" name="number" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '');
+                                              if(this.value < 1) this.value = '';
+                                              if (this.value.length > this.maxLength) {
+                                              this.value = this.value.slice(0, this.maxLength);
+                                          }">
+
+                            <label for="image">Image</label>
+                            <input type="file" placeholder="Image" id="image" name="image" accept="image/*">
+
+                            <label for="group">Group</label>
+                            <select class="form-select" id="add_group" name="group"></select>
+
+                            <button type="submit" class="btn btn-primary" id="contact_add">Add Contact</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="updateModal">
+        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content  bg-dark text-white">
+                    <div class="modal-header">
+                        <h1 class="modal-title text-white fs-5" id="updateModalLabel">Contact Update</h1>
+                    </div>
+                    <div class="modal-body">
+                        <form method="patch" id="update_form">
+
+                            <label for="name">Name</label>
+                            <input type="text" placeholder="Name" id="name" name="name">
+
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="Email" id="email" name="email">
+
+                            <label for="number">Contact Number</label>
+                            <input type="text" placeholder="Number" id="number" name="number" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '');
+                                    if(this.value < 1) this.value = '';
+                                    if (this.value.length > this.maxLength) {
+                                    this.value = this.value.slice(0, this.maxLength);
+                                }">
+
+                            <label for="image">Image</label>
+                            <input type="file" placeholder="Image" id="image" name="image" accept="image/*">
+
+                            <label for="group">Group</label>
+                            <select class="form-select" id="update_group" name="group"></select>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer-btn">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="contact_update_btn">Save
+                            changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="deleteModal">
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                        <h1 class="modal-title text-white fs-5" id="deleteModalLabel">Delete Contact</h1>
+                    </div>
+                    <div class="modal-body">Are You Sure You Want to Delete This Contact ?</div>
+                    <div class="modal-footer-btn">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-Danger" data-bs-dismiss="modal"
+                            id="delete_contact_btn">Delete Contact</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contactTable pt-5" id="contact_list"></div>
+
+    </body>
+    <%- include("user_footer")%>
+        <script src="/public/assets/js/contact.min.js"></script>
+
+</html>

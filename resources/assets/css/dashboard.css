@@ -1,0 +1,148 @@
+.user h3 {
+    margin-right: -20px;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 2px !important;
+    padding: 20px;
+    align-content: center !important;
+}
+
+.modal-body form {
+    padding-left: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input {
+    display: block;
+    height: 50px;
+    width: 95%;
+    background-color: rgba(255, 255, 255, 0.07);
+    padding: 0 10px;
+    margin-top: 8px;
+    color: #f7f7f7;
+    font-size: 14px;
+    font-weight: 300;
+    align-items: center;
+}
+
+select#add_group {
+    width: 95% !important;
+}
+
+select#update_group {
+    width: 95% !important;
+}
+
+.searchGroup {
+    padding: 13px 20px;
+}
+
+::placeholder {
+    color: hsl(0, 0%, 100%);
+}
+
+button {
+    margin-top: 40px !important;
+    margin-bottom: 30px;
+    width: 95%;
+    background-color: #f7f7f7;
+    color: #080710;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dashboard {
+    margin-right: 25px;
+}
+
+.dashboard a {
+    text-decoration: none;
+    color: #fff;
+    background: #0d6efd;
+    padding: 22px 18px;
+    border-radius: 8px;
+}
+
+.modal-footer-btn {
+    display: flex;
+    gap: 10px;
+    border-top: #fff 1px solid;
+}
+
+.modal-footer-btn button {
+    margin: 20px !important;
+}
+
+.pagination .page-link {
+    background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
+    color: #fff;
+}
+
+button#reset_btn {
+    width: 8%;
+    margin-top: 3% !important;
+}
+
+button#reset_group_btn {
+    width: 15%;
+    margin-top: 6% !important;
+}
+
+
+.pagination .page-link:hover {
+    background: #fff;
+    color: #000;
+}
+
+.active>.page-link,
+.page-link.active {
+    z-index: 3;
+    color: #000 !important;
+    background-color: #fff !important;
+    border-color: #646060 !important;
+}
+
+.SearchBox input {
+    background-color: rgba(255, 255, 255, 0.07);
+    width: 60%;
+    color: #f7f7f7;
+    font-size: 15px;
+    margin-top: 50px !important;
+    align-items: center;
+}
+
+.SearchBox button {
+    display: block;
+    width: 20%;
+}
+
+.LimitBox input {
+    background-color: rgba(255, 255, 255, 0.07);
+    width: 60%;
+    color: #f7f7f7;
+    font-size: 15px;
+    margin-top: 50px !important;
+    align-items: center;
+}
+
+.LimitBox button {
+    display: block;
+    width: 30%;
+}

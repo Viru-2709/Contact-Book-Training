@@ -1,0 +1,12 @@
+{
+    "/public/assets/js/user_footer.min.js": "/public/assets/js/user_footer.min.js",
+    "/public/assets/js/reset_password.min.js": "/public/assets/js/reset_password.min.js",
+    "/public/assets/js/forget_password.min.js": "/public/assets/js/forget_password.min.js",
+    "/public/assets/js/regstration.min.js": "/public/assets/js/regstration.min.js",
+    "/public/assets/js/resend_mail.min.js": "/public/assets/js/resend_mail.min.js",
+    "/public/assets/js/login.min.js": "/public/assets/js/login.min.js",
+    "/public/assets/js/contact.min.js": "/public/assets/js/contact.min.js",
+    "/public/assets/js/group.min.js": "/public/assets/js/group.min.js",
+    "/public/assets/css/headers.min.css": "/public/assets/css/headers.min.css",
+    "/public/assets/css/user_headers.min.css": "/public/assets/css/user_headers.min.css"
+}
